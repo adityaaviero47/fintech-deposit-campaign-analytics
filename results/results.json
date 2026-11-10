@@ -1,0 +1,158 @@
+{
+  "validation": {
+    "rows": 41188,
+    "exact_duplicates": 12,
+    "missing": 0,
+    "unknown_values": 12718
+  },
+  "data": {
+    "clients": 41188,
+    "conversions": 4640,
+    "conversion_rate": 0.11265417111780131,
+    "total_calls": 105754,
+    "calls_per_conversion": 22.791810344827585
+  },
+  "by_contacts": {
+    "1": {
+      "clients": 17642,
+      "conversion": 0.13037070626913047
+    },
+    "2": {
+      "clients": 10570,
+      "conversion": 0.11456953642384106
+    },
+    "3": {
+      "clients": 5341,
+      "conversion": 0.10747051114023591
+    },
+    "4-5": {
+      "clients": 4250,
+      "conversion": 0.0868235294117647
+    },
+    "6-10": {
+      "clients": 2516,
+      "conversion": 0.06319554848966613
+    },
+    "11+": {
+      "clients": 869,
+      "conversion": 0.031070195627157654
+    }
+  },
+  "by_channel": {
+    "cellular": {
+      "clients": 26144,
+      "conversion": 0.14737607099143207
+    },
+    "telephone": {
+      "clients": 15044,
+      "conversion": 0.05231321457059293
+    }
+  },
+  "by_previous_outcome": {
+    "failure": {
+      "clients": 4252,
+      "conversion": 0.1422859830667921
+    },
+    "nonexistent": {
+      "clients": 35563,
+      "conversion": 0.08832213255349661
+    },
+    "success": {
+      "clients": 1373,
+      "conversion": 0.651128914785142
+    }
+  },
+  "channel_lift": 2.817186292242826,
+  "previous_success_lift": 5.7798917547781095,
+  "call_cap": {
+    "cap_3": {
+      "calls_saved": 28044,
+      "share_of_calls_saved": 0.2651814588573482,
+      "conversions_at_risk": 555,
+      "share_of_conversions_at_risk": 0.11961206896551724,
+      "conv_per_100_calls_before": 4.38754089679823,
+      "conv_per_100_calls_after": 5.256723716381418,
+      "efficiency_gain": 0.19810249978922512
+    },
+    "cap_5": {
+      "calls_saved": 15425,
+      "share_of_calls_saved": 0.14585736709722563,
+      "conversions_at_risk": 186,
+      "share_of_conversions_at_risk": 0.04008620689655172,
+      "conv_per_100_calls_before": 4.38754089679823,
+      "conv_per_100_calls_after": 4.930863842176931,
+      "efficiency_gain": 0.12383313527064477
+    }
+  },
+  "by_period": {
+    "P1 (earliest)": {
+      "clients": 8238,
+      "conversion": 0.03143966982277252,
+      "avg_calls_per_client": 2.5399368778829814,
+      "share_cellular": 0.0
+    },
+    "P2": {
+      "clients": 8237,
+      "conversion": 0.05426733033871555,
+      "avg_calls_per_client": 3.020517178584436,
+      "share_cellular": 0.4476144227267209
+    },
+    "P3": {
+      "clients": 8238,
+      "conversion": 0.05850934692886623,
+      "avg_calls_per_client": 3.119203690216072,
+      "share_cellular": 0.9186695799951444
+    },
+    "P4": {
+      "clients": 8237,
+      "conversion": 0.11071992230180891,
+      "avg_calls_per_client": 2.005341750637368,
+      "share_cellular": 0.9280077698191089
+    },
+    "P5 (latest)": {
+      "clients": 8238,
+      "conversion": 0.3083272638990046,
+      "avg_calls_per_client": 2.1529497450837582,
+      "share_cellular": 0.8794610342316096
+    }
+  },
+  "model_client_only": {
+    "auc": 0.6474331371969166,
+    "test_clients": 8238,
+    "test_base_rate": 0.3083272638990046,
+    "top20_capture": 0.34566929133858265,
+    "top20_conversion": 0.533090467516697,
+    "top30_capture": 0.49173228346456693,
+    "top30_conversion": 0.5054633751517604,
+    "top50_capture": 0.6295275590551181,
+    "top50_conversion": 0.38820101966496723
+  },
+  "model_with_macro": {
+    "auc": 0.6594252231063255,
+    "test_clients": 8238,
+    "test_base_rate": 0.3083272638990046,
+    "top20_capture": 0.34291338582677167,
+    "top20_conversion": 0.5288403157255617,
+    "top30_capture": 0.49094488188976376,
+    "top30_conversion": 0.5046539862403885,
+    "top50_capture": 0.6523622047244094,
+    "top50_conversion": 0.40228210730759895
+  },
+  "model_note": "time split: trained on the earliest 80% of calls, tested on the latest 20%; call duration excluded (only known after the call)",
+  "experiment": {
+    "hypothesis": "Calling clients in model-score order with a 3-call cap raises conversion per call vs the current calling order",
+    "primary_metric": "conversions per 100 calls",
+    "guardrails": [
+      "total conversions",
+      "complaint / do-not-call rate",
+      "calls per client"
+    ],
+    "baseline_conversion": 0.11265417111780131,
+    "n_per_arm": {
+      "+1.0 pp": 16293,
+      "+1.5 pp": 7372,
+      "+2.0 pp": 4220
+    },
+    "note": "sample sizes are clients per arm at 5% significance and 80% power; randomise at the client level with a holdout"
+  }
+}
